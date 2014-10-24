@@ -2,11 +2,11 @@
 /**
  * Created by PhpStorm.
  * User: Dimona
- * Date: 01.10.14
- * Time: 20:26
+ * Date: 24.10.14
+ * Time: 17:03
  */
 
-namespace AR\Exception;
+namespace Framework\Exception;
 
 
 class ConfigException extends \Exception {

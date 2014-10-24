@@ -9,7 +9,7 @@
 return array(
     'home' => array(
         'pattern' => '/',
-        'controller' => 'Home',
+        'controller' => 'HomeController',
         'action' => 'index'
     ),
 
@@ -18,7 +18,7 @@ return array(
         "requirements" => array(
             "method" => "GET"
         ),
-        'controller' => 'Students',
+        'controller' => 'StudentsController',
         'action' => 'show'
     )
 

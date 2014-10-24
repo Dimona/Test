@@ -12,6 +12,7 @@ use Framework\Exception\RendererException;
 
 /**
  * Rendering of the views
+ *
  * Class Renderer
  * @package Framework\Renderer
  */
@@ -19,18 +20,21 @@ class Renderer
 {
     /**
      * Path to view layout
+     *
      * @var string
      */
     private $file = false;
 
     /**
      * Array of the variables
+     *
      * @var array
      */
     private $data = array();
 
     /**
      * Constructor
+     *
      * @param $layout
      * @throws \Framework\Exception\RendererException
      */
@@ -47,6 +51,7 @@ class Renderer
 
     /**
      * Adding the variables to $data property
+     *
      * @param $variable
      * @param $value
      * @return $this
@@ -58,6 +63,7 @@ class Renderer
 
     /**
      * Rendering
+     *
      * @return string
      */
     public function render()

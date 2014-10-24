@@ -2,11 +2,11 @@
 /**
  * Created by PhpStorm.
  * User: Dimona
- * Date: 01.10.14
- * Time: 20:32
+ * Date: 24.10.14
+ * Time: 17:04
  */
 
-namespace AR\Exception;
+namespace Framework\Exception;
 
 
 class ConnectException extends \Exception {

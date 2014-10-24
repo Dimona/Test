@@ -8,6 +8,8 @@
 
 namespace Framework;
 
+use Framework\Db\MySQL;
+use Framework\DI\Service;
 use Framework\Renderer\Renderer;
 use Framework\Router\Router;
 
@@ -22,7 +24,9 @@ class Application
         $router->setRoutes(require_once '../app/config/routes.php');
 
         try {
-//            Factory::register(new MySQLAdapter(require '../config/config.php'));
+            $connection = new MySQL(require_once '../app/config/config.php');
+            Service::set('connection', $connection);
+//            var_dump($connection);
             $content = $router->processConfig();
         } catch (\Exception $e){
             $content = $e->getCode() . '. ' . $e->getMessage();

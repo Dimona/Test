@@ -13,6 +13,7 @@ class Request {
 
     /**
      * Getting request URI from $_SERVER global variable
+     *
      * @return string
      */
     public static function getURI()
@@ -22,6 +23,7 @@ class Request {
 
     /**
      * Getting request method from $_SERVER global variable
+     *
      * @return string
      */
     public static function getMethod()
@@ -31,6 +33,7 @@ class Request {
 
     /**
      * Check of the Request that is Ajax
+     *
      * @return bool
      */
     public static function isAjax()

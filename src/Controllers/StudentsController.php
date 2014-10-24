@@ -8,11 +8,14 @@
 
 namespace src\Controllers;
 
+use src\Models\Students;
 
-class Students {
+class StudentsController {
 
     public function showAction()
     {
+        $students = new Students();
+        $students->find();
         echo "Hello It's Students";
     }
 

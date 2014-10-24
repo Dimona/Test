@@ -12,13 +12,15 @@ use Framework\Renderer\Renderer;
 
 /**
  * Controller of the main page
+ *
  * Class Home
  * @package src\Controllers
  */
-class Home
+class HomeController
 {
     /**
      * Controller of index action
+     *
      * @return string
      */
     public function indexAction()
