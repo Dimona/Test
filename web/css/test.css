@@ -1,0 +1,28 @@
+html {
+    height: 100%;
+}
+
+body {
+    padding-top: 60px;
+    /*background-color: #444444;*/
+    /*height: 100%;*/
+}
+
+#logo {
+    padding-top: 40px;
+    padding-bottom: 50px;
+}
+
+#logo img {
+    width: 450px;
+}
+
+.container {
+    width: 700px;
+    text-align: center;
+}
+
+.navbar-fixed-top .container {
+    width: 700px;
+}
+
