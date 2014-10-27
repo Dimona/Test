@@ -8,7 +8,10 @@
 
 namespace Framework\Messages;
 
-
+/**
+ * Class MessageBox
+ * @package Framework\Messages
+ */
 class MessageBox
 {
     /**

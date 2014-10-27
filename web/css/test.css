@@ -4,8 +4,6 @@ html {
 
 body {
     padding-top: 60px;
-    /*background-color: #444444;*/
-    /*height: 100%;*/
 }
 
 #logo {
@@ -52,8 +50,6 @@ body {
 }
 
 #students-buttons {
-    /*width: 30px;*/
-    /*padding-top: 10px;*/
     text-align: right;
 }
 
@@ -66,21 +62,6 @@ body {
     padding-bottom: 40px;
     text-align: center;
 }
-
-/*.container-students-edit .validation-message {*/
-/*font-size: 10px;*/
-/*text-align: right;*/
-/*margin-top: -12px;*/
-/*margin-bottom: 5px;*/
-/*}*/
-
-/*.container-students-edit .error {*/
-/*color: firebrick;*/
-/*}*/
-
-/*.container-students-edit .success {*/
-/*color: forestgreen;*/
-/*}*/
 
 .container-students-edit .buttons {
     padding-top: 20px;

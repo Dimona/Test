@@ -14,10 +14,15 @@ use Framework\Messages\MessageBox;
 use Framework\Renderer\Renderer;
 use Framework\Router\Router;
 
+/**
+ * Class Application
+ * @package Framework
+ */
 class Application
 {
     /**
-     *  Application initialization
+     *  Initialization of the routing and connection to the database and registration of the last one.
+     *  Processing of the flash-massages. Rendering of the template page
      */
     public static function init()
     {
@@ -27,7 +32,6 @@ class Application
         try {
             $connection = new MySQL(require_once '../app/config/config.php');
             Service::set('connection', $connection);
-//            var_dump($connection);
             $content = $router->processConfig();
         } catch (\Exception $e){
             $content = $e->getCode() . '. ' . $e->getMessage();
@@ -37,7 +41,6 @@ class Application
         $renderer->assign('content', $content);
         if ($_SERVER['REQUEST_METHOD'] != 'POST') {
             $messageBox = new MessageBox();
-//            var_dump($messageBox->getMessages());
             $renderer->assign('messages', $messageBox->getMessages());
         }
         echo $renderer->render();

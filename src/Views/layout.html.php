@@ -13,17 +13,11 @@
 </head>
 
 <body>
-<!--<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.3/js/jquery.dataTables.js"></script>-->
-<!--<script type="text/javascript" src="/js/jquery.js"></script>-->
 <script type="text/javascript" src="/js/jquery.min.js"></script>
 <script type="text/javascript" src="/js/bootstrap.min.js"></script>
-<!--<script type="text/javascript" src="/js/jquery.js"></script>-->
 <script type="text/javascript" src="/js/jquery.dataTables.js"></script>
 <script type="text/javascript" src="/js/bootstrapValidator.min.js"></script>
 <script type="text/javascript" src="/js/studentValidation.js"></script>
-<script type="text/javascript" src="/js/jquery.navigation.js"></script>
-<!--<script type="text/javascript" src="/js/jquery.lightbox_me.js"></script>-->
-<!--<script type="text/javascript" src="/js/addTeam.js"></script>-->
 
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">

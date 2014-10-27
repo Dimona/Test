@@ -68,23 +68,4 @@ return array(
             "method" => "POST"
         )
     )
-    /*,
-
-       'addTeam' => array(
-           "pattern" => "/teams",
-           "requirements" => array(
-               "method" => "POST"
-           ),
-           'controller' => 'Teams',
-           'action' => 'add'
-       ),
-
-       'getTeams' => array(
-           "pattern" => "/teams",
-           "requirements" => array(
-               "method" => "GET"
-           ),
-           'controller' => 'Teams',
-           'action' => 'index'
-       )*/
 );

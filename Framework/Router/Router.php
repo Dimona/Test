@@ -84,7 +84,6 @@ class Router
                 $route['values'][$name] : $param->getDefaultValue();
         }
 
-//        var_dump(new \ReflectionClass($controllerClass)); die;
         $controller = new $controllerClass;
         return $reflectionMethod->invokeArgs($controller, $args);
     }
@@ -108,7 +107,6 @@ class Router
                 $values = array_combine($params, $match);
                 $route['values'] = $values;
             }
-//            var_dump($route);
             return $route;
         }
         return false;

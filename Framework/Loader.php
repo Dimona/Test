@@ -8,37 +8,15 @@
 
 namespace Framework;
 
-
+/**
+ * Class Loader
+ * @package Framework
+ */
 class Loader
 {
-//
-//    /** [Singleton] where class' instance is keeping
-//     * @var bool
-//     */
-//    static private $class = false;
-//
-//    /** [Singleton] Entry point to the class
-//     * @return bool|Loader
-//     */
-//    public static function gate()
-//    {
-//        if (is_object(self::$class) == false) {
-//            self::$class = new self;
-//        }
-//        return self::$class;
-//    }
-//
-//    /**
-//     * Prevent object cloning
-//     * @return void
-//     */
-//    final private function __clone()
-//    {
-//    }
-//
-//    private $classFolders;
-
-
+    /**
+     * Registration of the autoloader
+     */
     public static function init()
     {
         if (is_callable('__autoload')) {
@@ -47,6 +25,11 @@ class Loader
         spl_autoload_register(__NAMESPACE__ . '\Loader::load');
     }
 
+    /**
+     * Loading of the class
+     *
+     * @param $class
+     */
     public static function load($class)
     {
         $class = __DIR__ . '/../' . str_replace('\\', DIRECTORY_SEPARATOR, $class) . '.php';

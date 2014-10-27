@@ -102,7 +102,3 @@ $(document).ready(function () {
         }
     });
 });
-
-//$('#formStudents').submit(function (event) {
-//    event.preventDefault();
-//});

@@ -19,7 +19,7 @@ use Framework\Renderer\Renderer;
 class HomeController
 {
     /**
-     * Controller of index action
+     * Controller. Rendering of the main page
      *
      * @return string
      */

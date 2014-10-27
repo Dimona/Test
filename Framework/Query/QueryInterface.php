@@ -11,6 +11,9 @@ namespace Framework\Query;
 
 interface QueryInterface
 {
+    /**
+     * @return mixed
+     */
     public function build();
 
 }

@@ -11,8 +11,9 @@ namespace Framework\Query;
 
 class MySQLQuery implements QueryInterface
 {
-//  Some different properties for preparing sql query. It's realized very casually.
-//  But for this project is enough
+/**  Some different properties for preparing sql query. It's realized very casually.
+     But for this project is enough
+ */
 //----------------------------------------------------------------------------------
     protected $_condition = 'select';
     protected $_from = null;
@@ -178,7 +179,6 @@ class MySQLQuery implements QueryInterface
                 break;
         }
 
-//        var_dump($query);
         return $query;
     }
 

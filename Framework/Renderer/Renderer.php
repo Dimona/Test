@@ -41,7 +41,6 @@ class Renderer
     public function __construct($layout)
     {
         $file = __DIR__ . '/../../src/Views/' . $layout . '.html.php';
-//        var_dump('$file = ' . $file);
         if (file_exists($file)) {
             $this->file = $file;
         } else {

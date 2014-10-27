@@ -16,7 +16,9 @@ use Framework\Model\AbstractModel;
  */
 class Students extends AbstractModel
 {
-
+    /**
+     * Constructor. Set the value to the $_table property
+     */
     public function __construct()
     {
         $this->_table = array_pop(explode('\\', get_class($this)));

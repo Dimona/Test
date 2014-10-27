@@ -8,7 +8,10 @@
 
 namespace Framework\Messages;
 
-
+/**
+ * Class Message
+ * @package Framework\Messages
+ */
 class Message
 {
     /**
