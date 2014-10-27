@@ -15,12 +15,6 @@ use Framework\Exception\QueryException;
 class MySQL implements DBInterface
 {
 
-//    private $host = 'localhost';
-//    private $user = 'root';
-//    private $password = '';
-//    private $database = '';
-//    private $charset = 'utf-8';
-
     /**
      * Result of the connecting to the database
      *
@@ -42,7 +36,7 @@ class MySQL implements DBInterface
     }
 
     /**
-     * Destructor
+     * Destructor. Initiate disconnect method
      */
     function __destruct()
     {
@@ -50,6 +44,14 @@ class MySQL implements DBInterface
     }
 
 
+    /**
+     * Set the connection to th database
+     *
+     * @param array $config
+     * @return bool|mixed
+     * @throws \Framework\Exception\ConfigException
+     * @throws \Framework\Exception\ConnectException
+     */
     public function connect(array $config)
     {
         $keys = array('host', 'user', 'password', 'database');
@@ -67,6 +69,11 @@ class MySQL implements DBInterface
         return true;
     }
 
+    /**
+     * Close the connection to the database
+     *
+     * @return bool|mixed
+     */
     public function disconnect()
     {
         return mysql_close($this->_resource);
@@ -81,6 +88,7 @@ class MySQL implements DBInterface
      */
     public function execute($query)
     {
+        var_dump($query);
         if (!mysql_query($query)) {
             throw new QueryException('The Query is not executed');
         }
@@ -96,11 +104,10 @@ class MySQL implements DBInterface
      */
     public function select($query)
     {
-        //var_dump($query);
         if ($rowset = mysql_query($query, $this->_resource)) {
             $result = array();
             while ($row = mysql_fetch_assoc($rowset)) {
-                $result[] = (object)$row;
+                $result[] = $row;
             }
             return $result;
         }

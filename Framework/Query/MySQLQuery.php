@@ -20,6 +20,8 @@ class MySQLQuery implements QueryInterface
     protected $_sort = null;
     protected $_limit = null;
     protected $_skip = 0;
+    protected $_to = null;
+    protected $_params = array();
 //----------------------------------------------------------------------------------
     /**
      * Initializing of the $_condition property
@@ -95,7 +97,31 @@ class MySQLQuery implements QueryInterface
     }
 
     /**
-     * Building of sql query string
+     * Initializing of the $_to property
+     *
+     * @param $to
+     * @return $this
+     */
+    public function to($to)
+    {
+        $this->_to = $to;
+        return $this;
+    }
+
+    /**
+     * Initializing of the $_params property
+     *
+     * @param $params
+     * @return $this
+     */
+    public function params($params)
+    {
+        $this->_params = $params;
+        return $this;
+    }
+
+    /**
+     * Rendering of sql query string
      *
      * @return string
      */
@@ -123,41 +149,45 @@ class MySQLQuery implements QueryInterface
                     $query .= ' LIMIT ' . $skip . ',' . $this->_limit;
                 }
                 break;
-/*
+
             case 'insert':
-                if (count($changedFields)) {
-                    $query = 'INSERT INTO ' . $from . ' SET ';
-                    $queryArray = array();
-                    foreach ($changedFields as $field => $value) {
-                        $queryArray[] = (strpos($value, 'PASSWORD') === False) ? "`$field` = '$value'" : "`$field` = $value";
-                    }
-                    $query .= implode(', ', $queryArray);
+                $query = 'INSERT INTO ' . $this->_to . ' SET ';
+                $queryArray = array();
+                foreach ($this->_params as $field => $value) {
+                    $queryArray[] = "`$field` = '$value'";
                 }
+                $query .= implode(', ', $queryArray);
                 break;
 
             case 'update':
-                if (count($changedFields)) {
-                    $query = 'UPDATE ' . $from . ' SET ';
-                    $queryArray = array();
-                    foreach ($changedFields as $field => $value) {
-                        $queryArray[] = (strpos($value, 'PASSWORD') === False) ? "`$field`='$value'" : "`$field`=$value";
-                    }
-                    //var_dump($queryArray);
-                    $query .= implode(', ', $queryArray) . ' WHERE id = ' . $fields['id'];
-
+                $query = 'UPDATE ' . $this->_to . ' SET ';
+                $queryArray = array();
+                foreach ($this->_params as $field => $value) {
+                    $queryArray[] = "`$field`='$value'";
                 }
+                $query .= implode(', ', $queryArray) . ' WHERE `id` = ' . $this->_params['id'];
                 break;
+
             case 'remove':
-                $query = 'DELETE FROM ' . $from . ' WHERE `id` = ';
-                $query .= (isset($fields['id'])) ? $fields['id'] : 'null';
-                break;*/
+                $query = 'DELETE FROM ' . $this->_from . ' WHERE `id` IN ( ';
+                $queryArray = array();
+                foreach ($this->_params as $id) {
+                    $queryArray[] = $id;
+                }
+                $query .= implode(', ', $queryArray) . ')';
+                break;
         }
 
 //        var_dump($query);
         return $query;
     }
 
-    public function getQuery()
+    /**
+     * Building query string
+     *
+     * @return string
+     */
+    public function build()
     {
         return $this->toString();
     }

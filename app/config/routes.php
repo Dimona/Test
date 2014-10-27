@@ -13,34 +13,62 @@ return array(
         'action' => 'index'
     ),
 
-    'getStudents' => array(
+    'showStudents' => array(
         "pattern" => "/students",
+        'controller' => 'StudentsController',
+        'action' => 'show',
         "requirements" => array(
             "method" => "GET"
-        ),
+        )
+    ),
+
+    'addStudent' => array(
+        "pattern" => "/students/add",
         'controller' => 'StudentsController',
-        'action' => 'show'
+        'action' => 'add',
+        "requirements" => array(
+            "method" => "GET"
+        )
+    ),
+
+    'editStudent' => array(
+        "pattern" => "/students/{id}/edit",
+        'controller' => 'StudentsController',
+        'action' => 'edit',
+        "requirements" => array(
+            "method" => "GET",
+            "id" => '\d+'
+        )
+    ),
+
+    'updateStudent' => array(
+        "pattern" => "/students/{id}/update",
+        'controller' => 'StudentsController',
+        'action' => 'update',
+        "requirements" => array(
+            "method" => "POST",
+            "id" => '\d+'
+        )
+    ),
+
+    'insertStudent' => array(
+        "pattern" => "/students/insert",
+        'controller' => 'StudentsController',
+        'action' => 'insert',
+        "requirements" => array(
+            "method" => "POST"
+        )
+    ),
+
+    'removeStudent' => array(
+        "pattern" => "/students/remove",
+        'controller' => 'StudentsController',
+        'action' => 'remove',
+        "requirements" => array(
+            "method" => "POST"
+        )
     )
-
-    /*   'getTeam' => array(
-           "pattern" => "/teams/{id}",
-           "requirements" => array(
-               "method" => "GET",
-               "id" => '\d+'
-           ),
-           'controller' => 'Teams',
-           'action' => 'get'
-       ),
-
-       'editTeam' => array(
-           "pattern" => "/teams/{id}",
-           "requirements" => array(
-               "method" => "POST",
-               "id" => '\d+'
-           ),
-           'controller' => 'Teams',
-           'action' => 'edit'
-       ),
+    /*,
 
        'addTeam' => array(
            "pattern" => "/teams",

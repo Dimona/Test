@@ -10,6 +10,7 @@ namespace Framework;
 
 use Framework\Db\MySQL;
 use Framework\DI\Service;
+use Framework\Messages\MessageBox;
 use Framework\Renderer\Renderer;
 use Framework\Router\Router;
 
@@ -31,8 +32,14 @@ class Application
         } catch (\Exception $e){
             $content = $e->getCode() . '. ' . $e->getMessage();
         };
+
         $renderer = new Renderer('layout');
         $renderer->assign('content', $content);
+        if ($_SERVER['REQUEST_METHOD'] != 'POST') {
+            $messageBox = new MessageBox();
+//            var_dump($messageBox->getMessages());
+            $renderer->assign('messages', $messageBox->getMessages());
+        }
         echo $renderer->render();
     }
 } 

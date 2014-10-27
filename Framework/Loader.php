@@ -50,7 +50,6 @@ class Loader
     public static function load($class)
     {
         $class = __DIR__ . '/../' . str_replace('\\', DIRECTORY_SEPARATOR, $class) . '.php';
-//        var_dump($class);
         require_once $class;
 
     }

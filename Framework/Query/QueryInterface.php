@@ -11,6 +11,6 @@ namespace Framework\Query;
 
 interface QueryInterface
 {
-    public function getQuery();
+    public function build();
 
 }
